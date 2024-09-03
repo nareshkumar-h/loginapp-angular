@@ -7,6 +7,25 @@
   * Login => /login
   * Products => /products  
 
+##### Prerequisite : LocalStorage in HTML5
+* Add Item
+```ts
+localStorage.setItem("LOGGED_IN", "true");
+```
+* Get Item
+```ts
+const isLoggedIn = localStorage.getItem("LOGGED_IN");
+console.log(isLoggedIn);
+```
+* Remove item
+```ts
+localStorage.removeItem("LOGGED_IN");
+```
+* Remove all items
+```ts
+localStorage.clear();
+```
+
 #### Task 1: Login Form Angular
 
 * Add FormsModule, CommonModule
@@ -62,6 +81,39 @@ to
      alert('Email:' + this.email);
      alert('Password:' + this.password);
 ```
+
+#### Task 1.4 : Store the form data in JSON
+
+```ts
+//Convert form values to json data
+    const userData = {
+      "email": this.email,
+      "password": this.password
+    };
+console.log(userData);
+
+```
+
+##### Task 1.5: Login Logic
+```ts
+// Login Details: admin@gmail.com/admin
+    if (this.email == "admin@gmail.com" && this.password == "admin") {
+      alert("Login Successful");
+      localStorage.setItem("LOGGED_IN", "true");
+      // window.location.href = "/products"; //Page redirection ( html/JS)
+      this.router.navigateByUrl('/products'); // recommended - SPA
+    } else {
+      alert("Invalid Login Credentials");
+    }
+```
+
+##### Task 1.6 : Page Redirection
+
+```ts
+ // window.location.href = "/products"; //Page redirection ( html/JS)
+      this.router.navigateByUrl('/products'); // recommended - SPA
+```
+
 
 
 
