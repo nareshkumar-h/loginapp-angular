@@ -46,8 +46,11 @@ to
 ```
 
 * In Angular form submission
+
+```html
 <form (ngSubmit)="onSubmit()">
 </form>
+```
 
 #### Task 1.3: Get Form values 
 
