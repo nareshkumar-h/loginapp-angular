@@ -1,27 +1,64 @@
-# Loginapp
+#### Notes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+#### Prerequisite
+* Login Form - email/password
+* Create bootstrap navbar
+* Menus
+  * Login => /login
+  * Products => /products  
 
-## Development server
+#### Task 1: Login Form Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Add FormsModule, CommonModule
+* Add ngModel to form fields
+* Add ngSubmit and implement onSubmit logic
 
-## Code scaffolding
+##### Task 1.1 Form Fields
+* ts
+```ts
+  email!: string;
+  password!: string;
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Normal Text Box
+```html
+<input type="email" name="email" id="email" class="form-control">
+```
+to
+* Link Textbox in angular using ngModel
+```html
+<input type="email" name="email" id="email" class="form-control" [(ngModel)]="email">
+```
 
-## Build
+##### Task 1.2 Form Submission
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```ts
+  onSubmit() {
+     alert('Form is submitted');
+   }
+```
 
-## Running unit tests
+* html
+  
+```html
+<form onsubmit="onSubmit()">
+</form>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* In Angular form submission
+<form (ngSubmit)="onSubmit()">
+</form>
 
-## Running end-to-end tests
+#### Task 1.3: Get Form values 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+  onSubmit() {
+     alert('Form is submitted');
 
-## Further help
+    //How to get form values in angular
+     alert('Email:' + this.email);
+     alert('Password:' + this.password);
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
